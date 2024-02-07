@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Himalayan Flora Quiz</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('https://imgs.search.brave.com/BYd6BTCW4FFSBdUbraeO6umDAk0BxEAJ2PZHYFgCuUo/rs:fit:500:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJjYXZlLmNv/bS93cC9RdEVuZGhl/LmpwZw');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .quiz-container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            margin: 50px auto;
+            max-width: 800px; /* Increase the max-width for a larger container */
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .question {
+            margin-bottom: 20px;
+            font-size: 18px; /* Increase font size for better readability */
+        }
+
+        .answers label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .btn-submit {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        .btn-submit:hover {
+            background-color: #45a049;
+        }
+
+        #results {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="quiz-container">
+                    <h1 class="mb-4">Himalayan Flora Quiz</h1>
+                    <form id="quiz-form">
+                        <div class="form-group">
+                            <label for="username">Enter your username:</label>
+                            <input type="text" class="form-control" id="username" name="username" required>
+                        </div>
+
+                        <div id="quiz">
+                            <!-- Questions will be dynamically inserted here -->
+                        </div>
+
+                        <button type="button" class="btn btn-success btn-submit mt-3" id="submit">Submit Answers</button>
+                    </form>
+                    <div id="results" class="mt-4"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script>
+        const quizContainer = document.getElementById('quiz');
+        const resultsContainer = document.getElementById('results');
+        const submitButton = document.getElementById('submit');
+        const usernameInput = document.getElementById('username');
+
+        const myQuestions = [
+            {
+                question: "Which of the following is a dominant tree species in the lower altitude regions of the Himalayas?",
+                answers: {
+                    a: "Deodar",
+                    b: "Rhododendron",
+                    c: "Banj Oak",
+                    d: "Silver Fir"
+                },
+                correctAnswer: "a"
+            },
+            {
+                question: "What is the state tree of Himachal Pradesh in the Western Himalayas?",
+                answers: {
+                    a: "Cedar",
+                    b: "Bamboo",
+                    c: "Sal",
+                    d: "Pine"
+                },
+                correctAnswer: "a"
+            },
+            {
+                question: "At what altitude do you typically find alpine vegetation in the Himalayas?",
+                answers: {
+                    a: "500 to 1,000 meters",
+                    b: "1,000 to 2,000 meters",
+                    c: "2,000 to 3,000 meters",
+                    d: "Above 3,000 meters"
+                },
+                correctAnswer: "d"
+            },
+            {
+                question: "Which flowering plant is known for its vibrant colors and is commonly found in the Himalayan meadows?",
+                answers: {
+                    a: "Marigold",
+                    b: "Sunflower",
+                    c: "Daisy",
+                    d: "Primula"
+                },
+                correctAnswer: "d"
+            },
+            {
+                question: "Which tree species is often referred to as the 'Queen of the Himalayan Forests'?",
+                answers: {
+                    a: "Deodar Cedar",
+                    b: "Rhododendron",
+                    c: "Banj Oak",
+                    d: "Blue Pine"
+                },
+                correctAnswer: "b"
+            }
+            // Add more questions as needed
+        ];
+
+        function buildQuiz() {
+            const output = [];
+
+            myQuestions.forEach((currentQuestion, questionNumber) => {
+                const answers = [];
+                for (const letter in currentQuestion.answers) {
+                    answers.push(
+                        `<label class="btn btn-light">
+                            <input type="radio" name="question${questionNumber}" value="${letter}">
+                            ${letter}: ${currentQuestion.answers[letter]}
+                        </label>`
+                    );
+                }
+
+                output.push(
+                    `<div class="question mb-3"> ${currentQuestion.question} </div>
+                    <div class="answers btn-group btn-group-toggle" data-toggle="buttons"> ${answers.join('')} </div>`
+                );
+            });
+
+            quizContainer.innerHTML = output.join('');
+        }
+
+        function showResults() {
+            const answerContainers = quizContainer.querySelectorAll('.answers');
+            let numCorrect = 0;
+
+            myQuestions.forEach((currentQuestion, questionNumber) => {
+                const answerContainer = answerContainers[questionNumber];
+                const selector = `input[name=question${questionNumber}]:checked`;
+                const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+
+                if (userAnswer === currentQuestion.correctAnswer) {
+                    numCorrect++;
+                }
+            });
+
+            const totalQuestions = myQuestions.length;
+            const userMarks = numCorrect;
+
+            resultsContainer.innerHTML = `<p class="mt-3">You got ${numCorrect} out of ${totalQuestions} correct!</p>`;
+
+            // Send data to PHP script using AJAX
+            const xhr = new XMLHttpRequest();
+            const url = 'quiz.php';
+            const params = `username=${encodeURIComponent(usernameInput.value)}&marks=${userMarks}`;
+
+            xhr.open('POST', url, true);
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    // Handle the response if needed
+                    console.log(xhr.responseText);
+                }
+            };
+
+            xhr.send(params);
+        }
+
+        buildQuiz();
+        submitButton.addEventListener('click', showResults);
+    </script>
+</body>
+</html>

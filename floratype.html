@@ -1,0 +1,480 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Himalayan Flora Exploration</title>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Roboto:wght@300;400;500;900&display=swap");
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Open Sans", sans-serif;
+    }
+
+    main {
+      position: relative;
+      width: calc(min(90rem, 90%));
+      margin: 0 auto;
+      min-height: 100vh;
+      column-gap: 3rem;
+      padding-block: min(20vh, 3rem);
+    }
+
+    .bg,
+    .bg2 {
+      position: fixed;
+      z-index: -1;
+      opacity: 0.1;
+    }
+
+    main > div {
+      text-align: justify;
+      margin-bottom: 2rem;
+    }
+
+    main > div span {
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-size: 1rem;
+      color: #717171;
+    }
+
+    main > div h1 {
+      text-transform: capitalize;
+      letter-spacing: 0.8px;
+      font-family: "Roboto", sans-serif;
+      font-weight: 900;
+      font-size: clamp(3.4375rem, 3.25rem + 0.75vw, 4rem);
+      background: linear-gradient(45deg, #005baa, #000000);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      -moz-background-clip: text;
+      -moz-text-fill-color: transparent;
+    }
+
+    main > div hr {
+      display: block;
+      background: #005baa;
+      height: 0.25rem;
+      width: 6.25rem;
+      border: none;
+      margin: 1.125rem 0 1.875rem 0;
+    }
+
+    main > div p {
+      line-height: 1.6;
+    }
+
+    main a {
+      display: inline-block;
+      text-decoration: none;
+      text-transform: uppercase;
+      color: #717171;
+      font-weight: 500;
+      background: #fff;
+      border-radius: 3.125rem;
+      transition: 0.3s ease-in-out;
+    }
+
+    main > div > a {
+      border: 2px solid #c2c2c2;
+      margin-top: 2.188rem;
+      padding: 0.625rem 1.875rem;
+      display: inline-block; /* Fix for anchor tag inside paragraph */
+    }
+
+    main > div > a:hover {
+      border: 0.125rem solid #005baa;
+      color: #005baa;
+    }
+
+    .swiper {
+      width: 100%;
+      padding-top: 3.125rem;
+    }
+
+    .swiper-pagination-bullet,
+    .swiper-pagination-bullet-active {
+      background: #fff;
+    }
+
+    .swiper-pagination {
+      bottom: 1.25rem !important;
+    }
+
+    .swiper-slide {
+      width: 18.75rem;
+      height: 28.125rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end; /* Updated from 'end' */
+      align-items: flex-start; /* Updated from 'self-start' */
+      position: relative; /* Added */
+    }
+
+    .swiper-slide h2 {
+      color: #fff;
+      font-family: "Roboto", sans-serif;
+      font-weight: 400;
+      font-size: 1.4rem;
+      line-height: 1.4;
+      margin-bottom: 0.625rem;
+      padding: 0 1.563rem; /* Updated */
+      text-transform: uppercase;
+      z-index: 1; /* Added */
+    }
+
+    .swiper-slide p {
+      color: #dadada;
+      font-family: "Roboto", sans-serif;
+      font-weight: 300;
+      padding: 0 1.563rem;
+      line-height: 1.6;
+      font-size: 0.75rem;
+      display: -webkit-box;
+ 
+      overflow: hidden;
+    }
+
+    .swiper-slide a {
+      margin: 1.25rem 1.563rem 3.438rem 1.563rem;
+      padding: 0.438em 1.875rem;
+      font-size: 0.9rem;
+      z-index: 1; /* Added */
+    }
+
+    .swiper-slide a:hover {
+      color: #005baa;
+    }
+
+    .swiper-slide div {
+      position: absolute;
+      bottom: 0;
+      display: none;
+      opacity: 0;
+      padding-bottom: 0.625rem;
+      z-index: 1; /* Added */
+    }
+    #chart_div{
+      position: relative;
+      top: -1675px;
+      left: 1000px;
+    }
+
+    .swiper-slide-active div {
+      display: block;
+      opacity: 1;
+    }
+
+    .swiper-slide--one {
+      background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
+        url("http://t1.gstatic.com/licensed-image?q=tbn:ANd9GcR_-l4weQhl384Ip_eM-EM2BBtQW4oDmQCZOOzTgegc9HpGJmiKuXAwHZ1FGVZXO8v-FF6xgEJjYSBptn8XW3MKtST_gOgrKOlbsPe276cO")
+          no-repeat 50% 50% / cover;
+    }
+
+    .swiper-slide--two {
+      background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
+        url("data:image/jpeg;base64,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")
+          no-repeat 50% 50% / cover;
+    }
+
+    .swiper-slide--three {
+      background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
+        url("https://www.flowersofindia.net/catalog/slides/Himalayan%20Rhubarb.jpg")
+          no-repeat 50% 50% / cover;
+    }
+
+    .swiper-slide--four {
+      background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
+        url("https://www.flowersofindia.net/catalog/slides/Himalayan%20Meadow%20Primrose.jpg")
+          no-repeat 50% 50% / cover;
+    }
+
+    .swiper-slide--five {
+      background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
+        url("https://plus.unsplash.com/premium_photo-1684585898514-37f06bcffa83?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8UmhvZG9kZW5kcm9uc3xlbnwwfHwwfHx8MA%3D%3D")
+          no-repeat 50% 50% / cover;
+    }
+
+    .swiper-3d .swiper-slide-shadow-left,
+    .swiper-3d .swiper-slide-shadow-right {
+      background-image: none;
+    }
+
+    @media screen and (min-width: 48rem) {
+      main {
+        display: flex;
+        align-items: center;
+      }
+      .bg,
+      .bg2 {
+        opacity: 0.1;
+      }
+    }
+
+    @media screen and (min-width: 93.75rem) {
+      .swiper {
+        width: 85%;
+      }
+    }
+    a {
+    text-decoration: none;
+    color: black; /* Set the initial color */
+  }
+
+  a:hover {
+    color: red; /* Set the color when hovering */
+  }
+  body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        main {
+            padding: 1rem;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .flora-category {
+            cursor: pointer;
+            border: 1px solid #ccc;
+            padding: 1rem;
+            margin: 0.5rem;
+            text-align: center;
+        }
+
+        .flora-category img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 0.5rem;
+        }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 style="font: size 400px;">Himalayan Flora</h1>
+    <section class="header">
+      <div class="topnav" style="font-size: large; padding: 10px 40px 10px 40px ;position: relative;right: 300px;">
+       
+      
+          <div style="display: inline-block;">
+          <a style="color: white;font-size: xx-large;text-decoration: none;" href="home.html" class="topnav-link" ><b>Home</b></a> &nbsp;
+          <a style="color: white;font-size: xx-large;text-decoration: none;" href="location.html" class="topnav-link" ><b>Locations</b></a>&nbsp;
+          <a style="color: white;font-size: xx-large;text-decoration: none;" href="endangered.html" class="topnav-link" ><b>Endangered</b></a>&nbsp;
+          <a style="color: white;font-size: xx-large;text-decoration: none;" href="medicines.html" class="topnav-link" ><b>Medicines</b></a>&nbsp;
+          <a style="color: white;font-size: xx-large;text-decoration: none;" href="quiz.html" class="topnav-link" ><b>Quiz</b></a>&nbsp;
+          
+          </div>            
+      </div>
+</section>
+</header>
+  <main>
+  <div>
+
+      <p>Welcome to the Himalayan Flora Exploration, your digital gateway to the enchanting world of plant life in the Himalayan region. Immerse yourself in the diverse and breathtaking flora that graces the mighty Himalayas.</p>
+      <p>
+        The Himalayas, the highest mountain range on Earth, form a massive barrier across Asia, stretching for approximately 2,500 kilometers (1,550 miles) from east to west. It lies between the Tibetan Plateau on the north and the Indo-Gangetic Plain on the south, bordering several countries:
+      </p>
+      <ol>
+        <li>India: Northern states like Jammu & Kashmir, Himachal Pradesh, Uttarakhand, Sikkim, Arunachal Pradesh</li>
+        <li>Entire northern and central region</li>
+        <li>Bhutan: Entire northern region</li>
+        <li>China: Tibet Autonomous Region</li>
+        <li>Myanmar: Northernmost tip.</li>
+      </ol>
+      <h1 style="font-family: 'Gothic', 'Old English Text MT', 'Blackletter', 'Gotham Black', 'Tahoma';">Regions in the Himalayas</h1>
+      <ol> 
+        <li>Sivalik Hills: The southernmost range, with lower foothills.</li>
+        <li>Lower Himalayas: Also known as the Mahabharat Lekh in Nepal, with elevations ranging from 3,000 to 5,000 meters (9,800 to 16,400 feet).</li>
+        <li>Great Himalayas: The highest and central range, containing Mount Everest (8,848 meters or 29,031 feet), the world's highest peak.</li>
+        <li>Tibetan Himalayas: The northernmost range, bordering the Tibetan Plateau.</li>
+      </ol>
+      <h1 style="font-family: 'Gothic', 'Old English Text MT', 'Blackletter', 'Gotham Black', 'Tahoma';">diversity of flora in the Himalayas</h1>
+
+      <p>The Himalayas are a treasure trove of plant life, boasting an estimated 10,000 species of vascular plants, making them one of the most biodiverse regions in the world. The sheer variety of ecosystems, from tropical foothills to alpine meadows, contributes to this incredible diversity.</p>
+      <p>The Himalayas has a large number of flora:</p>
+      <ul>
+        <li>Angiosperms:8,000 species</li>
+        <li>Gymnosperms: 44 species</li>
+        <li>Pteridophytes: 600 species</li>
+        <li>Bryophytes: 1,736 species</li>
+        <li>Lichens: 1,159 species</li>
+        <li>Fungi: 6,900 species</li>
+      </ul>
+      <h1 style="font-family: 'Gothic', 'Old English Text MT', 'Blackletter', 'Gotham Black', 'Tahoma';">Flora based on location</h1>
+      <p>The Himalayas, with their vast size and diverse topography, exhibit a fascinating range of plant life that varies greatly depending on location. </p>
+        <p>Eastern Himalayas:</p>
+          Dominant flora: Rhododendrons, ferns, orchids, oaks, maples, magnolias, and bamboos.
+          High, with a significant number of unique species found nowhere else in the world.   
+        <p>Central Himalayas:</p>
+        Dominant flora: Conifers like cedars, pines, and firs, along with broadleaf trees like oaks and maples.
+        Moderately high, with around 4,000 species.
+      <p>Western Himalayas:</p>
+          <p>Dominant flora: Deodar cedar, Himalayan pine, juniper, and dry-adapted shrubs like Berberis and Rosa.</p>
+          Lowest in the Himalayas, with approximately 2,500 species.
+          <p>For more details <a href="location.html">click here</a></p>
+          <h1 style="font-family: 'Gothic', 'Old English Text MT', 'Blackletter', 'Gotham Black', 'Tahoma';">Endangered Flora</h1>
+          <p>The himalayas are known to have a lot of endangered species</p>
+          <p>Himalayan Trillium:</p>
+          <p>These delicate wildflowers, including the Trillium govanianum (Himalayan Trillium) and Trillium tschonoskii (Keun-yeon-yeong-cho), are known for their three-petaled flowers and are symbols of purity and innocence.</p>
+          <p>Lady's Slipper Orchids:</p>
+          <p>These captivating orchids, such as the Cypripedium himalaicum and Paphiopedilum fairrieanum, are beloved for their unique slipper-shaped flowers and vibrant colors.</p>
+          <p>Himalayan Yew (Taxus wallichiana):</p>
+          <p>This coniferous tree is found in the Western Himalayas and is valued for its medicinal properties.
+            It is threatened by overexploitation for its bark and wood, habitat loss due to deforestation, and competition from invasive species</p>
+            <p>For more details <a href="endangered.html">click here</a></p>
+            <h1 style="font-family: 'Gothic', 'Old English Text MT', 'Blackletter', 'Gotham Black', 'Tahoma';">Medicinal Flora</h1>
+            <p>The Himalayas are known to have a lot of Medicinal species</p>
+            <p>Ashwagandha (Withania somnifera):</p>
+            <p>Benefits: Used for stress relief, boosting immunity, promoting sleep, and enhancing cognitive function.</p>
+            <p> Cordyceps (Ophiocordyceps sinensis):</p>
+            <p>Benefits: Used for boosting energy levels, improving athletic performance, and enhancing lung function.</p>
+            <p>For more details <a href="medicine.html">click here</a></p>
+           </div>  
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide swiper-slide--one">
+          <div>
+            <h2>Brahmkamal</h2>
+            <p>Also known as the "King of Himalayan Flowers," the brahmkamal is a high-altitude flower with a white, lotus-like bloom. It is considered sacred in Hindu mythology</p>
+            <a href="https://en.wikipedia.org/wiki/Wikipedia:Featured_picture_candidates/Brahma_Kamal" target="_blank">Explore</a>
+          </div>
+        </div>
+        <div class="swiper-slide swiper-slide--two">
+          <div>
+            <h2>Blue Poppy</h2>
+            <p>The blue poppy, particularly the Himalayan blue poppy (Meconopsis betonicifolia), is famous for its striking blue flowers. It is a delicate and sought-after plant.</p>
+            <a href="https://en.wikipedia.org/wiki/Meconopsis" target="_blank">Explore</a>
+          </div>
+        </div>
+        <div class="swiper-slide swiper-slide--three">
+          <div>
+            <h2>Himalayan Rhubarb</h2>
+            <p>Several species of rhubarb are found in the Himalayas, known for their medicinal properties</p>
+            <a href="https://en.wikipedia.org/wiki/Rheum_australe" target="_blank">Explore</a>
+          </div>
+        </div>
+        <div class="swiper-slide swiper-slide--four">
+          <div>
+            <h2>Himalayan Primrose </h2>
+            <p>This flowering plant is native to the Himalayas and is known for its globe-shaped clusters of flowers.</p>
+            <a href="https://en.wikipedia.org/wiki/Primrose" target="_blank">Explore</a>
+          </div>
+        </div>
+        <div class="swiper-slide swiper-slide--five">
+          <div>
+            <h2>Rhododendrons</h2>
+            <p>The Himalayas are renowned for their colorful rhododendron species. These flowering plants vary in size and color, with shades ranging from white and pink to red.</p>
+            <a href="https://en.wikipedia.org/wiki/Rhododendron" target="_blank">Explore</a>
+          </div>
+        </div>
+      </div>     
+      <div class="swiper-pagination"></div>
+    </div>
+    <img src="https://cdn.pixabay.com/photo/2021/11/04/19/39/jellyfish-6769173_960_720.png" alt="" class="bg">
+    <img src="https://cdn.pixabay.com/photo/2012/04/13/13/57/scallop-32506_960_720.png" alt="" class="bg2">
+  </main>
+  <div id="chart_div"></div>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script>
+    var swiper = new Swiper(".swiper", {
+        effect: "coverflow",
+        grabCursor: true,
+        centeredSlides: true,
+        coverflowEffect: {
+            rotate: 0,
+            stretch: 0,
+            depth: 100,
+            modifier: 3,
+            slideShadows: true,
+        },
+        keyboard: {
+            enabled: true,
+        },
+        mousewheel: {
+            thresholdDelta: 70,
+        },
+        loop: true,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        breakpoints: {
+            640: {
+                slidesPerView: 2,
+            },
+            768: {
+                slidesPerView: 1,
+            },
+            1024: {
+                slidesPerView: 2,
+            },
+            1560: {
+                slidesPerView: 3,
+            },
+        },
+    });
+</script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+
+  // Load the Visualization API and the corechart package.
+  google.charts.load('current', {'packages':['corechart']});
+
+  // Set a callback to run when the Google Visualization API is loaded.
+  google.charts.setOnLoadCallback(drawChart);
+
+  // Callback that creates and populates a data table,
+  // instantiates the pie chart, passes in the data and
+  // draws it.
+  function drawChart() {
+
+    // Create the data table.
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'Region');
+    data.addColumn('number', 'Percentage');
+
+    // Add data rows for Eastern, Central, and Western Himalayas
+    data.addRows([
+      ['Eastern Himalayas', 25], // You can adjust the percentage estimates accordingly
+      ['Central Himalayas', 35],
+      ['Western Himalayas', 25]
+    ]);
+
+    // Set chart options
+    var options = {
+      'title': 'Percentage Estimates of Dominant Flora in the Himalayas',
+      'width': 600,
+      'height': 400
+    };
+
+    // Instantiate and draw our chart, passing in some options.
+    var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+    chart.draw(data, options);
+  }
+</script>
+</body>
+</html>
+

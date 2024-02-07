@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Voyage Slider | GSAP</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.min.css'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat&amp;display=swap"rel="stylesheet'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+
+<div class="app">
+
+	<div class="cardList">
+		<button class="cardList__btn btn btn--left">
+			<div class="icon">
+				<svg>
+					<use xlink:href="#arrow-left"></use>
+				</svg>
+			</div>
+		</button>
+
+		<div class="cards__wrapper">
+			<div class="card current--card">
+				<div class="card__image">
+					<img src="https://imgs.search.brave.com/x987TtfohtL8-T2ggbp3PUEw5XM0zX2YOanPGQNNxyI/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9jZG4u/bW9zLmNtcy5mdXR1/cmVjZG4ubmV0L2hR/U0VkYUVIblRvTEFk/c3FlUTRLMzYtNDE1/LTgwLmpwZw" alt="" />
+				</div>
+			</div>
+
+			<div class="card next--card">
+				<div class="card__image">
+					<img src="https://imgs.search.brave.com/0UrQdgG6WkQ0_70_t3VVQkWZsiwHiBTEK6LXJQfNxbw/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMudW5zcGxhc2gu/Y29tL3Bob3RvLTE1/MzI5MjAxNjE3Mjct/MzQ0YWRiMDkwZjdm/P3E9ODAmdz0xMDAw/JmF1dG89Zm9ybWF0/JmZpdD1jcm9wJml4/bGliPXJiLTQuMC4z/Jml4aWQ9TTN3eE1q/QTNmREI4TUh4elpX/RnlZMmg4TW54OFlt/RnRZbTl2ZkdWdWZE/QjhmREI4Zkh3dw.jpeg" alt="" />
+				</div>
+			</div>
+
+			<div class="card previous--card">
+				<div class="card__image">
+					<img src="https://imgs.search.brave.com/KWiJAfGyshYIKPFF5zmwGYCW4BmbjpUVqBln3n371kE/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMudW5zcGxhc2gu/Y29tL3Bob3RvLTE1/NjIxMzM1NTgtNGEz/OTA2MTc5YzY3P3E9/ODAmdz0xMDAwJmF1/dG89Zm9ybWF0JmZp/dD1jcm9wJml4bGli/PXJiLTQuMC4zJml4/aWQ9TTN3eE1qQTNm/REI4TUh4elpXRnlZ/Mmg4T0h4OGIzSmph/R2xrZkdWdWZEQjhm/REI4Zkh3dw.jpeg" alt="" />
+				</div>
+			</div>
+		</div>
+
+		<button class="cardList__btn btn btn--right">
+			<div class="icon">
+				<svg>
+					<use xlink:href="#arrow-right"></use>
+				</svg>
+			</div>
+		</button>
+	</div>
+
+	<div class="infoList">
+		<div class="info__wrapper">
+			<div class="info current--info">
+				<h1 class="text name">Rhododendrons</h1>
+				<p class="text description">Rhododendron arboreum (Lali Gurans)</p>
+			</div>
+
+			<div class="info next--info">
+				<h1 class="text name">Bamboos</h1>
+				<p class="text description">Bambusa tulda (Hill Bamboo)</p>
+			</div>
+
+			<div class="info previous--info">
+				<h1 class="text name">Orchids</h1>
+				<p class="text description">Cymbidium spp. (Various species)</p>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="app__bg">
+		<div class="app__bg__image current--image">
+			<img src="https://source.unsplash.com/Z8dtTatMVMw" alt="" />
+		</div>
+		<div class="app__bg__image next--image">
+			<img src="https://source.unsplash.com/9dmycbFE7mQ" alt="" />
+		</div>
+		<div class="app__bg__image previous--image">
+			<img src="https://source.unsplash.com/m7K4KzL5aQ8" alt="" />
+		</div>
+	</div>
+</div>
+
+<div class="loading__wrapper">
+	<div class="loader--text">Loading...</div>
+	<div class="loader">
+		<span></span>
+	</div>
+</div>
+
+
+<svg class="icons" style="display: none;">
+	<symbol id="arrow-left" xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'>
+		<polyline points='328 112 184 256 328 400'
+					 style='fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:48px' />
+	</symbol>
+	<symbol id="arrow-right" xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'>
+		<polyline points='184 112 328 256 184 400'
+					 style='fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:48px' />
+	</symbol>
+</svg>
+
+
+
+
+
+
+
+
+
+
+
+<div class="support">
+	<a href="https://twitter.com/DevLoop01" target="_blank"><i class="fab fa-twitter-square"></i></a>
+	<a href="https://dribbble.com/devloop01" target="_blank"><i class="fab fa-dribbble"></i></a>
+</div>
+<!-- partial -->
+  <script src='https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.3/gsap.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

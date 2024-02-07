@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  @import url("https://fonts.googleapis.com/css?family=Montserrat");
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #f2f2f2;
+  font-family: 'Montserrat', sans-serif;
+  min-width: 320px;
+}
+
+.background {
+  background-image: url('https://imgs.search.brave.com/TMBZSWXdE2zEAQQg7YJwRcfrShWvj4oaZCkc379xndo/rs:fit:500:0:0/g:ce/aHR0cHM6Ly93d3ct/bWVkaWEuYWFwLmNv/bS5hdS93cC1jb250/ZW50L3VwbG9hZHMv/MjAyMi8wNC8yNjE3/NDIwMy9kMjhhNjNk/MC1hYmE3LTRlMWYt/OTc0MC01YzRkZGYw/MjJmYTguanBnP3Y9/MTY1MDk1ODkyNg');
+  height: 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  position: relative;
+}
+
+#title {
+  font-weight: bold;
+  font-size: 4em;
+  opacity: .6;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 75%;
+  transform: translate(-50%, -50%);
+  font-family: sans-serif;
+}
+
+.background2 {
+  background-image: url('http://www.creative.travel/wp-content/uploads/2017/06/Trek-1.jpg');
+  height: 75%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+}
+
+.background3 {
+  background-image: url('https://cdn.hipwallpaper.com/i/61/79/d9whDV.jpg');
+  height: 75%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+}
+
+#header-img {
+  float: left;
+  padding-left: 35px;
+  height: 50px;
+}
+
+header nav {
+  background-color: #f2f2f2;
+  padding: 6px 16px 6px 0px;
+  width: 100%;
+  position: fixed;
+  overflow: hidden;
+  z-index: 99999;
+  top: 0;
+  opacity: .95;
+}
+
+header nav a {
+  float: right;
+  display: block;
+  text-align: center;
+  padding: 16px 27px 16px 0px;
+}
+
+.nav-link {
+  background: none!important;
+  border: none;
+  text-decoration: none;
+  color: black;
+  opacity: .7;
+  font-size: 16px;
+  font-family: 'Montserrat';
+}
+
+.nav-link:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.connect {
+  padding-right: 10px;
+}
+
+.explore {
+  height: 500px;
+  background-color: #f2f2f2;
+  text-align: center;
+  margin-top: 0;
+}
+
+.explore-inner {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#video {
+  max-width: 100%;
+}
+
+.info {
+  height: 500px;
+  background-color: #f2f2f2;
+}
+
+.inner-info {
+  background-color: #f99d57;
+  width: 65%;
+  height: 65%;
+  margin: 0 auto;
+  margin-top: 100px;
+  padding: 35px;
+  padding-bottom: 55px;
+  max-width: 900px;
+}
+
+.hiking {
+  display: flex;
+  text-align: left;
+  align-items: center;
+}
+
+.temple {
+  display: flex;
+  text-align: left;
+  align-items: center;
+}
+
+.meditation {
+  display: flex;
+  text-align: left;
+  align-items: center;
+}
+
+.program-img {
+  padding: 20px;
+}
+
+#hiking-img {
+  height: 80px;
+  vertical-align: middle;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+#temple-img {
+  height: 70px;
+  vertical-align: middle;
+}
+
+#meditation-img {
+  height: 70px;
+  vertical-align: middle;
+}
+
+.reserve {
+  height: 400px;
+  background-color: #f2f2f2;
+}
+
+.reserve-info {
+  vertical-align: middle;
+  text-align: center;
+  padding: 100px;
+}
+
+.input {
+  height: 20px;
+  width: 280px;
+  padding: 5px;
+  margin: 10px;
+  border: 1px solid #c0c0c0;
+  border-radius: 2px;
+}
+
+.email-sub {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+
+#submit {
+  background-color: #2894d7;
+  border-radius: 4px;
+  color: white;
+  font-size: 1em;
+  height: 35px;
+  width: 80px;
+  margin: 10px;
+  border: 1px solid #2076ac;
+}
+
+#submit:focus {
+  outline:0 !important;
+}
+
+#submit:hover {
+  background-color: #2485c2;
+  cursor: pointer;
+}
+
+#info {
+  padding-top: 30px;
+}
+
+.footer {
+  height: 100px;
+  background-color: grey;
+}
+
+.copyright {
+  color: black;
+  text-align: center;
+  font-size: 12px;
+  margin-top: 40px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%); 
+}
+
+#linked-in {
+  text-decoration: none;
+  color: black;
+}
+
+#linked-in:hover {
+  color: black;
+}
+
+@media screen and (max-width: 655px) {
+  #title {
+    font-size: 3em;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #title {
+    font-size: 2em;
+  }
+}
+</style>
+<body>
+  <header id="header">
+    <nav id="nav-bar">
+    <img id="header-img" style="opacity:.8;"src="https://i.ibb.co/bKBSRNt/lotus.png" alt="logo"></img>
+      <a href="login.html"><button class="nav-link" type="button"><strong>login/signup</strong></button></a>
+    </nav>
+  </header> <!-- end header -->
+  
+  <div style="color: black;" class="background"><h1 id="title">Himalayan flora</h1></div>
+  
+  <a name="explore"></a>
+  <div class="explore">
+    
+    <div class="explore-inner">
+    <h2>Explore the Himalayas flora</h2>
+    <iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/-hTVNidxg2s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" frameborder="0" allowfullscreen></iframe>
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0"></meta>
+    </div> <!-- end explore-inner -->
+  
+  </div> <!-- end explore -->
+
+  <div class="footer">
+     <p class="copyright">© 
+        <script language="javascript" type="text/javascript">
+  var today = new Date()
+  var year = today.getFullYear()
+  document.write(year)
+  </script> 
+        <a id="linked-in" href="https://www.linkedin.com/in/brian-rousseau"=nav_responsive_tab_profile_pic>
+          Brian Rousseau</a>. All Rights Reserved.
+    </p>
+      </div> <!-- end footer -->
+  
+</body>
+</html>

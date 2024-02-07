@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap");
+
+@property --hue {
+	syntax: "<number>";
+	inherits: true;
+	initial-value: 243.04;
+}
+
+@keyframes hue-anim {
+	from {
+		--hue: 360;
+	}
+	to {
+		--hue: -360;
+	}
+}
+
+:root {
+	--hue: 243.04;
+	--swatch-1: oklch(97.1% 0.05 var(--hue));
+	--swatch-10: oklch(20.91% 0.05 var(--hue));
+	--swatch-6: oklch(48.38% 0.11 var(--hue));
+	font-family: "Space Grotesk", sans-serif;
+
+	animation: 20s linear infinite hue-anim;
+}
+
+.card {
+	display: grid;
+	gap: 1ch;
+	border-radius: 2ch;
+	background: oklch(var(--l) 0.07 var(--hue));
+	max-width: 50ch;
+	margin: auto;
+	padding: 2ch 4ch;
+	&.light {
+		// box-shadow: 0 5px 9px oklch(20.91% 0.05 var(--hue) / .32), inset 0px 1px 1px white;
+		box-shadow: inset 0px 1px 0 white,
+			0px 0.5px 0.6px oklch(20.91% 0.05 var(--hue) / 0.03),
+			0px 1.6px 1.8px -0.8px oklch(20.91% 0.05 var(--hue) / 0.02),
+			0px 4.1px 4.6px -1.7px oklch(20.91% 0.05 var(--hue) / 0.32),
+			0px 10px 11.3px -2.5px oklch(20.91% 0.05 var(--hue) / 0.32);
+	}
+	&.dark {
+		box-shadow: 0 0 2px white, 0 0 2px var(--swatch-1), 0 0 2ch var(--swatch-6),
+			0 0 1ch var(--swatch-6), 0 0 2ch var(--swatch-6), inset 0 0 1ch;
+		-webkit-box-reflect: below -2ch linear-gradient(transparent 75%, rgb(255 255
+						255 / 0.5));
+	}
+}
+
+h2 {
+	margin-bottom: 0;
+}
+
+body,
+html {
+	height: 100%;
+	margin: 0;
+}
+
+section {
+	display: grid;
+	align-content: center;
+	height: 100%;
+	width: 50%;
+	padding: 4ch;
+	position: fixed;
+	overflow-x: hidden;
+	top: 0;
+	&.light {
+		--l: 87.24%;
+		left: 0;
+		background-color: var(--swatch-1);
+		color: var(--swatch-10);
+	}
+
+	&.dark {
+		--l: 27.82%;
+		right: 0;
+		color: var(--swatch-1);
+		background-color: var(--swatch-10);
+	}
+}
+
+@media (orientation: portrait) {
+	section {
+		height: 50%;
+		width: 100%;
+		&.light {
+			inset: unset;
+		}
+		&.dark {
+			inset: unset;
+			top: 50%;
+		}
+	}
+}
+
+* {
+	box-sizing: border-box;
+}
+
+    </style>
+</head>
+<body>
+	
+        
+            
+                        
+        
+    
+    <section class="light">
+		<a class="dark" style=" ;font-size: xx-large; text-decoration: none;" href="floratype.html" class="topnav-link" ><b>Types</b></a> 	
+		<a class="dark" style=" font-size: xx-large; text-decoration: none;" href="dist/location.html" class="topnav-link" ><b>Location</b></a>
+
+
+        <div class="card light">
+            <h2>Do you find me becoming endangered? 😟</h2>
+            <p>"Have you come across any flora species that you suspect might be endangered? Share your observations and insights regarding the potential threats or concerns for the preservation of the species in question."</p>
+            <button class="card light">  <a href="endangered_form.html" style="color: white;text-decoration: none;">➕ Add Record </a>  </button>
+        </div>
+    </section>
+    <section class="dark">
+      <a class="dark" style=" font-size: xx-large; text-decoration: none;" href="quiz.html" class="topnav-link" ><b>Quiz</b></a>
+		<a style="color: white; font-size: xx-large; text-decoration: none;" href="medicine.html" class="topnav-link" ><b>Medicines</b></a>&nbsp;
+		<a style="text-align: right; position: absolute; right: 0; top: 20px; color:white; padding: 10px 10px 10px 10px; text-decoration: none;" href='home.html'><b>Home</b></a>
+
+        <div class="card dark">
+            <h2>I'm Endangered 😔</h2>
+            <p>Himalayan flora is endangered due to habitat loss, deforestation, climate change, pollution, invasive species, overharvesting, and human activities, highlighting the urgent need for comprehensive conservation efforts.</p>
+            <button class="card dark" ><a href="endangered_table.php" style="color: white;text-decoration: none;">Tap on me to know more 😫</a></button>
+        </div>
+    </section>
+</body>
+</html>

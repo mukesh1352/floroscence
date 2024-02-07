@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+  margin: 0;
+  text-redering: optimizeLegibility;
+}
+.hero {
+  background-image: linear-gradient(-45deg, rgba(200,200,200,0.5),rgba(200,200,200,0.5)), url(http://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Nusfjord_road%2C_2010_09.jpg/1100px-Nusfjord_road%2C_2010_09.jpg);
+  background-size: cover;
+  background-position: 40% 40%;
+  width: 100%;
+  height: 300px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+.description {
+  font-family: 'Source sans pro', sans-serif;
+  color: white;
+  font-weight: 100;
+  font-size: 40px;
+  -webkit-font-smoothing: antialiased;
+  text-align: center;
+  position: relative;
+  top: 120px;
+  margin-top: 0;
+  margin-bottom: 0;
+  -webkit-animation: grandeur 1s;
+  -moz-animation: grandeur 1s;
+  -ms-animation: grandeur 1s;
+  -o-animation: grandeur 1s;
+  animation: grandeur 1s;
+}
+.lower {
+  font-size: 25px;
+  color: white;
+  font-family: 'Source Sans Pro';
+  font-weight: 100;
+  text-align: center;
+  position: relative;
+  top: 130px;
+  margin-top: 0;
+  -webkit-font-smoothing: antialiased;
+  -webkit-animation: grandeur 1s;
+  -moz-animation: grandeur 1s;
+  -ms-animation: grandeur 1s;
+  -o-animation: grandeur 1s;
+  animation: grandeur 1s;
+}
+.credits {
+  font-size: 18px;
+  color: white;
+  font-family: 'Source Sans Pro';
+  font-weight: 100;
+  text-align: center;
+  position: relative;
+  top: 150px;
+  margin: 0;
+}
+.intro {
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+.boreal-general {
+  background-image: url(http://upload.wikimedia.org/wikipedia/commons/b/b1/Helmcken_Falls,_December_2012.jpg);
+  margin: 0 auto;
+}
+.circle {
+  background-size: cover;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 3px solid #62aa9f;
+}
+.caption {
+  font-family: 'Roboto';
+  font-weight: 300;
+  font-size: 16px;
+  color: grey;
+  position: relative;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+.subtitle {
+  font-size: 35px;
+  color: black;
+  font-family: 'Roboto';
+  font-weight: 100;
+  text-align: center;
+}
+.content {
+  font-size: 16px;
+  font-weight: 300;
+  font-family: 'Roboto Slab';
+  line-height: 1.65;
+}
+.header {
+  position: absolute;
+}
+.header .subtitle {
+  width: 100%;
+  text-align: center;
+}
+.moose {
+  background-image: url(https://imgs.mongabay.com/wp-content/uploads/sites/30/2020/07/02110526/1280px-Rhododendron_arboreum_flowers_Munnar_India-1200x800.jpeg);
+  margin: 0 auto;
+  display: inline-block;
+}
+.brown-bears {
+  background-image: url(https://greathimalayannationalpark.com/wp-content/uploads/2012/09/b_S2Med_Palnts_P2_Saussurea_obvallata_Brahma_Kamal.jpg);
+  margin: 0 auto;
+  margin: 10px;
+  display: inline-block;
+}
+.canadian-toad {
+  background-image: url(https://greathimalayannationalpark.com/wp-content/uploads/2012/09/b_S2Med_Plants_P4_Podophyllum_hexandrum.jpg);
+  background-position: center center;
+  margin: 0 auto;
+  display: inline-block;
+  position: relative;
+  margin: 10px;
+  top: 83px;
+}
+.north-american-river-otter {
+  background-image: url("https://greathimalayannationalpark.com/wp-content/uploads/2012/09/b_S2Med_Plants_P4_Podophyllum_hexandrum.jpg");
+  margin: 0 auto;
+  display: inline-block;
+  margin: 10px;
+  position: relative;
+  top: 20px;
+}
+.wolverine {
+  background-image: url(https://www.dreamwanderlust.com/post_images/top_5_medicinal_plants2.jpg);
+  margin: 0 auto;
+  display: inline-block;
+  position: relative;
+  left: 10px;
+  top: 20px;
+}
+sup {
+  font-size: 12px;
+  color: black;
+}
+.fauna {
+  background: #dcdcdc;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  height: 650px;
+  padding-left: 75px;
+  padding-right: 75px;
+}
+.fauna-sub {
+  padding-top: 25px;
+  text-align: center;
+  margin-bottom: 0;
+}
+.fauna-cap {
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  top: 165px;
+}
+.small {
+  width: 150px;
+  height: 150px;
+}
+.container {
+  width: 900px;
+  height: 250px;
+  margin: 0 auto;
+}
+@media (max-width: 1236px) {
+  .small {
+    width: 150px;
+    height: 150px;
+    margin-top: 0;
+  }
+  .fauna-cap {
+    position: relative;
+    top: 175px;
+  }
+  .canadian-toad, .willow {
+    position: relative;
+    top: 80px;
+  }
+  .north-american-river-otter, .cloudberry {
+    position: relative;
+    top: 20px;
+  }
+  .wolverine, .lichen {
+    position: relative;
+    top: 20px;
+  }
+  .container {
+    margin: 0 auto;
+  }
+}
+.map {
+  width: 100%;
+  height: 200px;
+  background: url(https://greathimalayannationalpark.com/wp-content/uploads/2012/09/b_S2Med_Palnts_P2_Saussurea_obvallata_Brahma_Kamal.jpg);
+  background-size: cover;
+}
+.fiord {
+  background: url(https://www.dreamwanderlust.com/post_images/top_5_medicinal_plants2.jpg);
+  background-size: cover;
+  position: relative;
+  margin: 0 auto;
+}
+.fiord-cap {
+  position: relative;
+  top: 15px;
+}
+.flora {
+  position: relative;
+  top: 450px;
+  left: 0;
+  background: #dcdcdc;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  height: 650px;
+  width: 100%;
+}
+.fireweed {
+  background: url(http://upload.wikimedia.org/wikipedia/commons/6/67/Epilobe_feuilles_etroites_01.jpg);
+  background-size: cover;
+  background-position: center center;
+  margin: 0 auto;
+  display: inline-block;
+}
+.coniferous {
+  background: url(http://upload.wikimedia.org/wikipedia/commons/8/81/Picea_abies.jpg);
+  background-size: cover;
+  background-position: center center;
+  margin: 0 auto;
+  margin: 10px;
+  display: inline-block;
+}
+.willow {
+  background: url(http://upload.wikimedia.org/wikipedia/commons/b/b8/Willow.jpg);
+  background-size: cover;
+  margin: 0 auto;
+  display: inline-block;
+  position: relative;
+  margin: 10px;
+  top: 83px;
+}
+.cloudberry {
+  background: url(http://upload.wikimedia.org/wikipedia/commons/2/27/Cloudberries.jpg);
+  background-size: cover;
+  background-position: center center;
+  margin: 0 auto;
+  display: inline-block;
+  margin: 10px;
+  position: relative;
+  top: 20px;
+}
+.lichen {
+  background: url(http://upload.wikimedia.org/wikipedia/commons/4/4a/Cladonia-stellaris-lichen-caribou.JPG);
+  background-size: cover;
+  background-position:;
+  margin: 0 auto;
+  display: inline-block;
+  position: relative;
+  left: 10px;
+  top: 20px;
+}
+.hare {
+  margin: 0 auto;
+  background: url(https://static.toiimg.com/thumb/imgsize-23456,msid-80282563,width-600,resizemode-4/80282563.jpghttps://greathimalayannationalpark.com/wp-content/uploads/2012/09/b_S2Med_Plants_P4_Podophyllum_hexandrum.jpg);
+  background-size: cover;
+}
+.hare-two {
+  margin: 0 auto;
+  margin-top: 50px;
+  background: url(https://www.dreamwanderlust.com/post_images/top_5_medicinal_plants2.jpg);
+  background-size: cover;
+  background-position: center center;
+}
+.food-chain {
+  width: 85%;
+  height: 200px;
+  margin: 0 auto;
+  background: url(http://cedrostec.com/mark/img/boreal-food-chain.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.food-web {
+  width: 50%;
+  height: 500px;
+  background: url(http://cedrostec.com/mark/img/boreal-food-web.png);
+  margin: 0 auto;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.chain {
+  overflow-y: scroll;
+}
+.web {
+  overflow-y: scroll
+}
+.fun-fact {
+  width: 300px;
+  height: 150px;
+  background: #dcdcdc;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  margin: 0 auto;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+.fun-header {
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: 500;
+}
+.video {
+  background: #dcdcdc;
+  width: 100%;
+  height: 500px;
+}
+.video .content {
+  text-align: center;
+}
+.player {
+  display: block;
+  margin: 0 auto;
+}
+.footer {
+  width: 100%;
+  height: 50px;
+  background: #333;
+  font-family: 'Roboto Slab';
+  color: white;
+  text-align: center;
+  line-height: 50px;
+}
+</style>
+<body>
+    <div class="hero">
+        <h1 class="description">The western himalayas</h1>
+        <h2 class="lower">home to some of Earth's most diverse ecosystems.</h2>
+         
+       </div>
+       
+       <div class="intro">
+         <h1 class="subtitle">Introduction to the western himalayas</h1>
+         <div class="boreal-general circle"></div>
+         <p class="caption">Nestled within the majestic embrace of the Western Himalayas lies a botanical wonderland,.</p>
+         
+         <p class="content">In the <strong><u>Western Himalayas</u></strong> one encounters an extraordinary array of plant species, each with its own unique charm and ecological significance. As you traverse the undulating landscapes, you'll find alpine meadows adorned with a riot of colors during the flowering season, courtesy of the iconic Rhododendron species. These vibrant blooms not only captivate the eye but also serve as a testament to the adaptability of life in high altitudes.</p>
+                            <div>Among the flora gracing the Western Himalayas is the Himalayan Yew, a medicinal plant deeply intertwined with traditional healing practices. Its presence underscores the intricate relationship between the region's biodiversity and the cultural heritage of the communities that call these mountains home.</div>
+       
+       <div class="fauna">
+           <h1 class="subtitle fauna-sub"><i>Types of flora in western himalayas</i></h1>
+         
+         <div class="container">
+           
+         <div class="moose circle small"><p class="caption fauna-cap">the <strong> Arboreum </strong> A study predicts the upward shift of Rhododendron arboreum in western Himalayas in a future climate change scenario.</p></div>
+         <div class="brown-bears circle small"><p class="caption fauna-cap">High in the<strong>Hath Panja</strong> Himalayas, thousands of medicinal plant species have been growing and thriving for centuries.</p></div>
+         <div class="canadian-toad circle small"><p class="caption fauna-cap">the <strong> obvallata</strong> (Brahma Kamal), Jiwa Nal Valley (4,000 m).</p></div>
+         <div class="north-american-river-otter circle small"><p class="caption fauna-cap">the <strong>Dactylorhiza hatageria</strong> (Hath Panja), Parkachi Meadow (3000 m)</p></div>
+         <div class="wolverine circle small"><p class="caption fauna-cap">a <strong>Meconopsis aculeata</strong>(Himalayan Blue Poppy), Parvati Valley (3900 m )</p>
+           
+           </div>
+         </div>
+       </div>
+       
+       <div class="intro" style="margin: 0; height: 400px;">
+         <h1 class="subtitle">medicinal plants</h1>
+         
+    
+         
+         <div class="hare circle"></div>
+           <p class="hare-cap caption">Hemp Agrimony.</p>
+         
+         <div class="hare-two circle"></div>
+           <p class="hare-cap caption">West Indian Chickweed</p>
+         
+       </div>
+       
+       <div class="flora">
+         <h1 class="subtitle fauna-sub"><i>Flora of the western himalayas Forests</i></h1>
+         
+           <div class="container">
+           
+         <div class="fireweed circle small"><p class="caption fauna-cap">the <strong>fireweed</strong>'s adaptations include silky hairs on its seeds help them fly with the wind and populate more areas.</p></div>
+         <div class="coniferous circle small"><p class="caption fauna-cap">a <strong>coniferous tree</strong> has a waxy coating on its needles, which prevent water from escaping them in the dry boreal climate.</p></div>
+         <div class="willow circle small"><p class="caption fauna-cap">although <strong>willow trees</strong> are less common than other plants in the boreal forest, their downward sloping branches help it survive in the biome by helping snow shed off.</p></div>
+         <div class="cloudberry circle small"><p class="caption fauna-cap">the <strong>cloudberry</strong> can withstand cold temperatures, and it takes advantage of snowmelt to satisfy its large need for water.</p></div>
+         <div class="lichen circle small"><p class="caption fauna-cap"> <strong>lichens</strong> consist of algae living among the filaments of a fungus. They give each other resources that allow each to live in harsh areas.<p>
+           </div>
+         </div>
+       </div>
+       
+       
+</body>
+</html>

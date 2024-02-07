@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<style>
+	@import url(https://fonts.googleapis.com/css?family=Oswald:300,400,700);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic);
+
+/* Override UGG site */
+#main {width: 100%; padding:0;}
+.content-asset p {margin:0 auto;}
+.breadcrumb {display:none;}
+
+/* Helpers */
+/**************************/
+.margin-top-10 {padding-top:10px;}
+.margin-bot-10 {padding-bottom:10px;}
+
+/* Typography */
+/**************************/
+#parallax-world-of-ugg h1 {font-family:'Oswald', sans-serif; font-size:24px; font-weight:400; text-transform: uppercase; color:black; padding:0; margin:0;}
+#parallax-world-of-ugg h2 {font-family:'Oswald', sans-serif; font-size:70px; letter-spacing:10px; text-align:center; color:white; font-weight:400; text-transform:uppercase; z-index:10; opacity:.9;}
+#parallax-world-of-ugg h3 {font-family:'Oswald', sans-serif; font-size:14px; line-height:0; font-weight:400; letter-spacing:8px; text-transform: uppercase; color:black;}
+#parallax-world-of-ugg p {font-family:'Source Sans Pro', sans-serif; font-weight:400; font-size:14px; line-height:24px;}
+.first-character {font-weight:400; float: left; font-size: 84px; line-height: 64px; padding-top: 4px; padding-right: 8px; padding-left: 3px; font-family: 'Source Sans Pro', sans-serif;}
+
+.sc {color: #3b8595;}
+.ny {color: #3d3c3a;}
+.atw {color: #c48660;}
+
+/* Section - Title */
+/**************************/
+#parallax-world-of-ugg .title {background: white; padding: 60px; margin:0 auto; text-align:center;}
+#parallax-world-of-ugg .title h1 {font-size:35px; letter-spacing:8px;}
+
+/* Section - Block */
+/**************************/
+#parallax-world-of-ugg .block {background: white; padding: 60px; width:820px; margin:0 auto; text-align:justify;}
+#parallax-world-of-ugg .block-gray {background: #f2f2f2;padding: 60px;}
+#parallax-world-of-ugg .section-overlay-mask {position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: black; opacity: 0.70;}
+
+/* Section - Parallax */
+/**************************/
+#parallax-world-of-ugg .parallax-one {padding-top: 200px; padding-bottom: 200px; overflow: hidden; position: relative; width: 100%; background-image: url(https://imgs.search.brave.com/DKQJ7F2Z-7F2NyKy3jdJpxN0ALa4kCTRehTlFWruuQE/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pY2hl/Zi5iYmNpLmNvLnVr/L25ld3MvOTc2L2Nw/c3Byb2RwYi80OTYw/L3Byb2R1Y3Rpb24v/XzExMDQ0ODc4MV8y/MDE2MDUxMF8wODMw/MzMuanBn); background-attachment: fixed; background-size: cover; -moz-background-size: cover; -webkit-background-size: cover; background-repeat: no-repeat; background-position: top center;}
+#parallax-world-of-ugg .parallax-two {padding-top: 200px; padding-bottom: 200px; overflow: hidden; position: relative; width: 100%; background-image: url(https://www.shutterstock.com/image-photo/yarsagumba-cordyceps-sinensis-ophiocordyceps-260nw-2097818245.jpg); background-attachment: fixed; background-size: cover; -moz-background-size: cover; -webkit-background-size: cover; background-repeat: no-repeat; background-position: center center;}
+#parallax-world-of-ugg .parallax-three {padding-top: 200px; padding-bottom: 200px; overflow: hidden; position: relative; width: 100%; background-image: url(https://imgs.search.brave.com/ArgZhEAP-dGbg-Dy89C3Rpy3fI0gRgjcLUqhmKamgEE/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuc3F1YXJlc3Bh/Y2UtY2RuLmNvbS9j/b250ZW50L3YxLzU2/MmZmMjM3ZTRiMDRi/MzMzMmZhZWQ5OC8x/NTgxNDUyNTI5ODAw/LVc3SUszWExPREk5/MFowV09ZQ1E4L2Fz/aHdhZ2FuZGEuanBn); background-attachment: fixed; background-size: cover; -moz-background-size: cover; -webkit-background-size: cover; background-repeat: no-repeat; background-position: center center;}
+#parallax-world-of-ugg .parallax-four {padding-top: 200px; padding-bottom: 200px; overflow: hidden; position: relative; width: 100%; background-image: url(https://images.unsplash.com/photo-1440688807730-73e4e2169fb8?dpr=1&auto=format&fit=crop&w=1500&h=1001&q=80&cs=tinysrgb&crop=); background-attachment: fixed; background-size: cover; -moz-background-size: cover; -webkit-background-size: cover; background-repeat: no-repeat; background-position: center center;}
+
+/* Extras */
+/**************************/
+#parallax-world-of-ugg .line-break {border-bottom:1px solid black; width: 150px; margin:0 auto;}
+
+/* Media Queries */
+/**************************/
+@media screen and (max-width: 959px) and (min-width: 768px) {
+  #parallax-world-of-ugg .block {padding: 40px; width:620px;}
+}
+@media screen and (max-width: 767px) {
+  #parallax-world-of-ugg .block {padding: 30px; width:420px;}
+  #parallax-world-of-ugg h2 {font-size:30px;}
+  #parallax-world-of-ugg .block {padding: 30px;}
+  #parallax-world-of-ugg .parallax-one, #parallax-world-of-ugg .parallax-two, #parallax-world-of-ugg .parallax-three {padding-top:100px; padding-bottom:100px;}
+}
+@media screen and (max-width: 479px) {
+  #parallax-world-of-ugg .block {padding: 30px 15px; width:290px;}
+}
+</style>
+<body>
+	<div id="parallax-world-of-ugg">
+  
+		<section>
+			<div class="title">
+				<h3>Medicinal Plants</h3>
+				<h1>In the himalayas</h1>
+			</div>
+		</section>
+		
+		<section>
+				<div class="parallax-one">
+					<h2>The Himlayan Medicinal plant</h2>
+				</div>
+		</section>
+		
+		<section>
+			<div class="block">
+				<p><span class="first-character sc">I</span>n the majestic Himalayan region, a treasure trove of medicinal plants has thrived for centuries, offering a rich repository of traditional healing wisdom. The Himalayas, with their diverse ecosystems and varying altitudes, are home to an extensive array of plants known for their therapeutic properties. These plants have been integral to the traditional medicine systems practiced by indigenous communities in the region.
+
+					In the late 20th century, a growing interest in traditional and herbal medicine prompted researchers and practitioners to delve into the Himalayan flora's medicinal potential. The Himalayan region boasts a wide variety of medicinal plants, ranging from high-altitude herbs to subtropical species. These plants are often used in formulations for treating various ailments, promoting overall well-being, and addressing health challenges.
+					
+					Local communities in the Himalayas have long relied on the healing properties of plants like Rhodiola, known for its adaptogenic qualities that help the body resist stressors. Another notable plant is Yarrow (Achillea millefolium), which has a history of use in traditional medicine for its anti-inflammatory and antimicrobial properties.</p>
+				<p class="line-break margin-top-10"></p>
+				<p class="margin-top-10">In addition to these, the Himalayan region is rich in herbs like Jatamansi (Nardostachys jatamansi) with reputed benefits for mental health, and Kutki (Picrorhiza kurroa), known for its hepatoprotective properties. The Himalayan Rhubarb (Rheum emodi) is valued for its digestive benefits.
+
+					As interest in herbal medicine has grown globally, the medicinal plants of the Himalayas have garnered attention for their potential in modern healthcare. Researchers continue to explore these plants for their pharmacological properties, paving the way for a bridge between traditional knowledge and contemporary medicine.
+					
+					The Himalayan medicinal plants, with their time-tested uses and cultural significance, represent a unique and valuable resource for the global exploration of natural remedies and holistic health practices.
+				</p>
+			</div>
+		</section>
+		
+		<section>
+			<div class="parallax-two">
+				<h2>Yarsagumba (Cordyceps sinensis)</h2>
+			</div>
+		</section>
+		
+		<section>
+			<div class="block">
+				<p><span class="first-character ny">V</span>enturing into the high-altitude regions of the Himalayas, one stumbles upon an extraordinary natural treasure known as Yarsagumba or Cordyceps sinensis. Originally valued for its traditional medicinal uses in Tibetan and Chinese cultures, Yarsagumba has undergone a remarkable transformation over the years, transcending its roots as a traditional remedy to become a coveted commodity in the global market.
+
+					In the early days, Yarsagumba was primarily recognized for its role in traditional medicine, revered for its purported aphrodisiac and energy-boosting properties. However, as the world's interest in natural remedies grew, Yarsagumba's profile began to shift. By the turn of the century, it had evolved from a regional remedy to a globally sought-after natural resource.</p>
+				<p class="line-break margin-top-10"></p>
+				<p class="margin-top-10">ust as UGG diversified its product lines to cater to changing fashion trends, Yarsagumba adapted to contemporary wellness needs. The Himalayan treasure, once limited to traditional remedies, now found its way into modern wellness routines. Its applications ranged from traditional medicine to trendy wellness products, much like UGG's expansion from sheepskin boots to an entire lifestyle brand.
+
+					As Yarsagumba gained prominence, it transcended its niche status to become a staple in the global wellness market. Its journey echoes that of UGG, as both Yarsagumba and the iconic footwear brand underwent transformations that propelled them from niche markets to mainstream appeal. The allure of Yarsagumba spread far beyond its traditional roots, much like UGG's journey from outdoor footwear to a symbol of casual luxury embraced worldwide.</p>
+			</div>
+		</section>
+		
+		<section>
+			<div class="parallax-three">
+				<h2>Ashwagandha (Withania somnifera)</h2>
+			</div>
+		</section>
+		
+		<section>
+			<div class="block">
+				<p><span class="first-character atw">A</span>shwagandha (Withania somnifera), reminiscent of a fashion trend that captures the discerning eye of the New York fashion community, has transcended its Ayurvedic origins to become a global phenomenon. Its journey mirrors the trajectory of popular brands, with love for Ashwagandha spreading across continents. The mid-2000s saw its infusion into the European fashion scene, aligning effortlessly with the stylish casual movement and the surging demand for premium casual fashion. As streets in London, Paris, and Amsterdam began witnessing the regular presence of Ashwagandha enthusiasts donning its healthful embrace, the brand solidified its international standing.
+
+					The expansion of Ashwagandha's influence continued unabated, marked by the establishment of flagship stores in the UK and Moscow. As the ardor for Ashwagandha reached farther East, concept stores emerged in bustling cities such as Beijing, Shanghai, and Tokyo. Today, Ashwagandha stands tall as an international brand, universally adored. The love for Ashwagandha is not merely rooted in its Ayurvedic heritage; it's a harmonious blend of the herb's functional benefits, drawn from its roots, and the emotional euphoria experienced when slipping into the comfort it provides. In essence, wearing Ashwagandha brings about a holistic sense of well-being that resonates globally.</p>
+				<p class="line-break margin-top-10"></p>
+				<p class="margin-top-10">In 2011, Ashwagandha embarked on a journey back to its roots, focusing on reigniting the passion of the active individuals who first brought the herb to life. Collaborating with Super Bowl champion and NFL MVP Tom Brady, Ashwagandha aimed to broaden its appeal, inviting more individuals to experience the profound love that the rest of the world knows so well. This strategic move marked not only a return to its origins but also a foray into the world of high fashion with the introduction of the Ashwagandha Collection. This collection seamlessly merges the timeless craftsmanship of Ayurvedic traditions with the dependable magic of Ashwagandha, elevating holistic health to the realms of luxury.
+
+					As Ashwagandha's global love affair continues to unfold, the brand remains committed to innovation. The UGG journey persists, unveiling new and unexpected ways to experience the profound benefits of this remarkable herb. The world has embraced Ashwagandha not just as a fashion statement but as a lifestyle, where the magic of functional benefits and emotional well-being converges seamlessly. The universal love for Ashwagandha continues to spread, transcending borders and cultures.</p>
+			</div>
+		</section>
+			
+		</div>
+</body>
+</html>

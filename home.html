@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel='stylesheet' href='https://cdn.rawgit.com/filipelinhares/ress/master/dist/ress.min.css'><link rel="stylesheet" href="./style.css">
+</head>
+<style>
+  * {
+    margin: 0;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+ 
+
+    .login-link {
+      position: absolute;
+      right: 0;
+      top: 20px;
+      color: white;
+      padding: 10px;
+      text-decoration: none;
+    }
+
+  body {
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+  }
+
+  main {
+    position: relative;
+    width: 100%;
+    height: 300%;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+  }
+
+  .item {
+    width: 200px;
+    height: 300px;
+    list-style-type: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    background-position: center;
+    background-size: cover;
+    border-radius: 20px;
+    box-shadow: 0 20px 30px rgba(255,255,255,0.3) inset;
+    transition: transform 0.1s, left 0.75s, top 0.75s, width 0.75s, height 0.75s;
+
+    &:nth-child(1), &:nth-child(2) {
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      transform: none;
+      border-radius: 0;
+      box-shadow: none;
+      opacity: 1;
+    }
+
+    &:nth-child(3) { left: 50%; }
+    &:nth-child(4) { left: calc(50% + 220px); }
+    &:nth-child(5) { left: calc(50% + 440px); }
+    &:nth-child(6) { left: calc(50% + 660px); opacity: 0; }
+  }
+
+  .content {
+    width: min(30vw,400px);
+    position: absolute;
+    top: 50%;
+    left: 3rem;
+    transform: translateY(-50%);
+    font: 400 0.85rem helvetica,sans-serif;
+    color: white;
+    text-shadow: 0 3px 8px rgba(0,0,0,0.5);
+    opacity: 0;
+    display: none;
+
+    & .title {
+      font-family: 'arial-black';
+      text-transform: uppercase;
+    }
+
+    & .description {
+      line-height: 1.7;
+      margin: 1rem 0 1.5rem;
+      font-size: 0.8rem;
+    }
+
+    button a {
+  width: fit-content;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: white;
+  border: 2px solid white;
+  border-radius: 0.25rem;
+  padding: 0.75rem;
+  cursor: pointer;
+  text-decoration: none; /* Remove underline from the link */
+}
+
+  }
+
+  .item:nth-of-type(2) .content {
+    display: block;
+    animation: show 0.75s ease-in-out 0.3s forwards;
+  }
+
+  @keyframes show {
+    0% {
+      filter: blur(5px);
+      transform: translateY(calc(-50% + 75px));
+    }
+    100% {
+      opacity: 1;
+      filter: blur(0);
+    }
+  }
+
+  .nav {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    user-select: none;
+
+    & .btn {
+      background-color: rgba(255,255,255,0.5);
+      color: rgba(0,0,0,0.7);
+      border: 2px solid rgba(0,0,0,0.6);
+      margin: 0 0.25rem;
+      padding: 0.75rem;
+      border-radius: 50%;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgba(255,255,255,0.3);
+      }
+    }
+  }
+
+  @media (max-width: 900px) and (min-width: 650px) {
+    .content {
+      & .title        { font-size: 1rem; }
+      & .description  { font-size: 0.7rem; }
+      & button        { font-size: 0.7rem; }
+    }
+    .item {
+      width: 160px;
+      height: 270px;
+
+      &:nth-child(3) { left: 50%; }
+      &:nth-child(4) { left: calc(50% + 170px); }
+      &:nth-child(5) { left: calc(50% + 340px); }
+      &:nth-child(6) { left: calc(50% + 510px); opacity: 0; }
+    }
+  }
+
+  @media (max-width: 650px) {
+    .content {
+      & .title        { font-size: 0.9rem; }
+      & .description  { font-size: 0.65rem; }
+      & button        { font-size: 0.7rem; }
+    }
+    .item {
+      width: 130px;
+      height: 220px;
+
+      &:nth-child(3) { left: 50%; }
+      &:nth-child(4) { left: calc(50% + 140px); }
+      &:nth-child(5) { left: calc(50% + 280px); }
+      &:nth-child(6) { left: calc(50% + 420px); opacity: 0; }
+    }
+  }
+  .content {
+  /* Existing styles for .content */
+
+  /* New styles for the search button */
+  & .search-button {
+    margin-top: 10px; /* Adjust the margin as needed */
+    background-color: #3498db; /* Change the background color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 0.9rem; /* Adjust the font size */
+  }
+
+  & .search-button:hover {
+    background-color: #2980b9; /* Change the hover background color */
+  }
+}
+
+</style>
+
+<body>
+ 
+
+  
+    <ul class='slider'>
+      <li class='item' style="background-image: url(https://images.pexels.com/photos/3737179/pexels-photo-3737179.jpeg?auto=compress&cs=tinysrgb&w=600)">
+        <div class='content'>
+          <h2 class='title'>"The Himalayas"</h2>
+          <p class='description'> The Himalayas, often referred to as the abode of snow, are a vast mountain range in Asia, separating the plains of the Indian subcontinent from the Tibetan Plateau. This majestic mountain range is home to some of the world's highest peaks, including Mount Everest.
+
+            The Himalayas play a significant role in shaping the climate of the region and are a source of several major rivers that flow through South Asia. The diverse flora and fauna, unique cultures, and breathtaking landscapes make the Himalayas a truly enchanting and awe-inspiring destination for adventurers and nature lovers alike.  </p>
+            <button style="color: red;"><a href="login.html">LOGOUT</a></button>
+
+        </div>
+      </li>
+      <li class='item' style="background-image: url(https://images.pexels.com/photos/8517228/pexels-photo-8517228.jpeg?cs=srgb&dl=pexels-jonas-thomann-8517228.jpg&fm=jpg)">
+        <div class='content'>
+          <h2 class='title'>"Flora"</h2>
+          <p class='description'>The Himalayas boast a rich and diverse array of flora, making it one of the most ecologically significant regions on the planet. From the foothills to the highest peaks, the Himalayan range hosts various vegetation zones.
+
+            In the lower elevations, you'll find lush subtropical and temperate forests with species like rhododendrons, magnolias, and orchids. As you ascend, coniferous forests dominate the landscape, with pine, spruce, and fir trees covering the mountainsides.
+       </p>
+          <button><a href="floratype.html">More</a> </button>
+          <button style="color: red;"><a href="login.html">LOGOUT</a></button>
+
+        </div>
+      </li>
+      <li class='item' style="background-image: url(https://www.researchgate.net/publication/328790994/figure/fig1/AS:690384598470657@1541611923157/Spatial-spread-of-the-Himalayan-mountain-system-across-seven-nations-The-elevational.png)">
+        <div class='content'>
+          <h2 class='title'>"Location"</h2>
+          <p class='description'>  The Himalayas, often referred to as the "abode of snow," is a vast mountain range in South Asia, extending across five countries: India, Nepal, Bhutan, China, and Pakistan. This majestic mountain system stretches over 1,500 miles (2,400 kilometers) and covers an area of about 612,021 square miles (1,587,000 square kilometers).
+
+            Geographically, the Himalayas form a natural barrier between the plains of the Indian subcontinent to the south and the Tibetan Plateau to the north. This imposing mountain range is characterized by its towering peaks, deep valleys, and a diverse range of ecosystems.
+      
+            Notable peaks in the Himalayas include Mount Everest, the highest point on Earth, and K2. The  </p>
+          <button><a href="location.html">Read More</a></button>
+          <button style="color: red;"><a href="login.html">LOGOUT</a></button>
+
+        </div>
+      </li>
+      <li class='item' style="background-image: url(https://www.researchgate.net/publication/333395732/figure/fig2/AS:961351103025178@1606215372823/Selected-medicinal-plants-of-Indian-Himalayan-region-aAconitum-hetrophyllum-bCinnamomum.jpg)">
+        <div class='content'>
+          <h2 class='title'>"medicinal plants"</h2>
+          <p class='description'>
+            The Himalayas are not only a stunning natural marvel but also a treasure trove of medicinal plants that have been used for centuries in traditional healing practices. The diverse flora of the Himalayan region includes a myriad of plants known for their therapeutic properties.
+
+            One such example is the Yarsagumba, a caterpillar fungus found in the alpine meadows. It has been highly valued in traditional medicine for its purported health benefits. Additionally, the region is abundant in herbs like Rhodiola, used for reducing stress, and Myrobalan, known for its digestive properties.
+      
+          </p>
+          <button><a href="medicine.html"> More</a></button>
+          <button style="color: red;"><a href="login.html">LOGOUT</a></button>
+        </div>
+      </li>
+      <li class='item' style="background-image: url(https://imgs.mongabay.com/wp-content/uploads/sites/30/2022/04/19105116/Himalayan-flowers_composite-min-768x512.jpg)">
+        <div class='content'>
+          <h2 class='title'>"Endangered Plants"</h2>
+          <p class='description'>
+            The Himalayan region, known for its rich biodiversity, is also home to several plant species facing the threat of extinction. Human activities, climate change, and habitat loss contribute to the endangerment of these vital plants, putting the delicate balance of the ecosystem at risk.
+
+            One such endangered species is the Brahma Kamal (Saussurea obvallata), an exquisite flower found in the alpine meadows. It holds cultural significance and is facing the risk of being over-harvested for ornamental purposes.
+      
+
+          </p>
+          <button><a href="endangered.html"> More</a></button>
+          <button style="color: red;"><a href="login.html">LOGOUT</a></button>
+
+          
+        </div>
+      </li>
+      <li class='item' style="background-image: url(https://imgs.search.brave.com/ClKnOUrPQ8DNYAUmzADec7c6Dqoj1tP8xEbByp8XhAo/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvNzMw/MTQwMzQxL3Bob3Rv/L2hpbWFsYXlhLW1v/dW50YWluLXJhbmdl/LW5lcGFsLmpwZz9z/PTYxMng2MTImdz0w/Jms9MjAmYz1ZSi1j/ZDFCQ19DRlZXNWJJ/VUhnLS1fLTdMWG5s/bUp5NW1rb21jZ1dy/eEFRPQ)">
+        <div class='content'>
+          <h2 class='title'>"Quiz"</h2>
+          <p class='description'>
+            Welcome to a captivating exploration of the extraordinary plant life that graces the majestic Himalayan region! The Himalayas, with their towering peaks and breathtaking landscapes, are not just a visual spectacle; they are also home to a diverse array of medicinal plants that have played a crucial role in traditional healing practices for generations.
+
+            This quiz invites you to embark on a virtual journey through the lush alpine meadows and verdant slopes of the Himalayas. As we delve into the fascinating world of Himalayan flora, you'll encounter remarkable plants like Yarsagumba, Rhodiola, and Myrobalan, each with its unique set of characteristics and traditional uses.
+            
+            Test your knowledge about these botanical marvels, their medicinal properties, and the cultural significance they hold in the Himalayan region. Whether you're a nature enthusiast, a budding botanist, or someone simply intrigued by the wonders of the natural world, this quiz promises an engaging and educational experience.
+            
+            So, gear up for a quiz that not only challenges your knowledge but also unveils the captivating stories behind the flora of the Himalayas. Let the exploration begin!
+      
+          </p>
+          <button><a href="quiz.html"> More</a></button>
+          <button style="color: red;"><a href="login.html">LOGOUT</a></button>
+        </div>
+      </li>
+    </ul>
+    <!-- Inside each .content div -->
+<div class='content'>
+  <!-- Existing content here -->
+
+  <!-- New search button -->
+  <button class='search-button'>Search</button>
+</div>
+
+    <nav class='nav'>
+      <ion-icon class='btn prev' name="arrow-back-outline"></ion-icon>
+      <ion-icon class='btn next' name="arrow-forward-outline"></ion-icon>
+    </nav>
+  </main>
+  
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script> 
+  <script>const slider = document.querySelector('.slider');
+
+    function activate(e) {
+      const items = document.querySelectorAll('.item');
+      e.target.matches('.next') && slider.append(items[0])
+      e.target.matches('.prev') && slider.prepend(items[items.length-1]);
+    }
+    
+    document.addEventListener('click',activate,false);</script>
+    <script>
+      document.addEventListener('click', activate, false);
+
+// Add an event listener for the search button
+document.addEventListener('click', function (e) {
+  if (e.target.matches('.search-button')) {
+    // Perform your search-related action here
+    alert('Performing search...');
+  }
+}, false);
+
+    </script>
+    <a href='login.html' class="login-link"><b>Log out</b></a>
+</body>
+</html>
